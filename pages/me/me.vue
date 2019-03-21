@@ -1,5 +1,7 @@
 <template>
-	<div>This is person center page</div>
+	<div>
+		person center page
+	</div>
 </template>
 
 <script>
