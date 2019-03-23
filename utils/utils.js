@@ -1,18 +1,40 @@
 import config from '../config/config';
 // import request from './request'
 
-const apikey = '0df993c66c0c636e29ecbb5344252a4a';
-
-export function get( url, start ) {
+export function get( url, param ) {
+	uni.showLoading({
+		title: '加载中'
+	});
 	return new Promise( (resolve, reject) => {
 		uni.request({
 			url: config.host + url,
 			data: {
-				 start
+				 param
 			},
 			success: res => {
 				if ( res.statusCode === 200 ) {
 					resolve(res)
+					uni.hideLoading();
+				}
+			},
+			fail: err => {
+				reject(err)
+			}
+		})
+	})
+}
+
+export function getType( url ) {
+	uni.showLoading({
+		title: '加载中'
+	});
+	return new Promise( (resolve, reject) => {
+		uni.request({
+			url: config.host + url,
+			success: res => {
+				if ( res.statusCode === 200 ) {
+					resolve(res)
+					uni.hideLoading();
 				}
 			},
 			fail: err => {

@@ -1,5 +1,5 @@
 // const host = 'http://api.douban.com/v2/';
-const host = 'http://localhost:4000/api'
+const host = 'http://localhost:3002'
 
 const config = {
 	host
