@@ -116,8 +116,7 @@
 				uni.navigateTo({
 					url: '/pages/detail/detail?id='+id
 				})
-			}
-			
+			}						
 		},
 		created() {
 			console.log('movie created');

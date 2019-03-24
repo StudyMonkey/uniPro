@@ -13,7 +13,7 @@
 			>
 				<div class="uni-media-list">
 					<div class="uni-media-list-logo">
-						<image :src="value.avatars.medium"></image>
+						<image :src="value.avatars.medium" @click="handlePreview(value)"></image>
 					</div>
 					<div class="uni-media-list-body" @click="handleCastsDetail(value)">
 						<div class="uni-media-list-text-top">{{value.name}}</div>
@@ -76,7 +76,15 @@
 				uni.navigateTo({
 					url: '/pages/casts/casts?id='+item.id
 				})
-			}
+			},
+			// 点击图片预览大图事件处理
+			handlePreview(item){
+				console.log('preview image');
+			  uni.previewImage({
+				current: item.avatars.medium,
+				urls: [item.avatars.medium]
+			  })
+			}			
 		},
 	}
 </script>
