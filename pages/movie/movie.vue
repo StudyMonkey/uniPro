@@ -1,20 +1,12 @@
 <template>
 	<div>
-<!-- 		<div 
-			class="uni-flex uni-row" 
-			style="justify-content: center;"
-			v-for="(list,ind) in newArray"
-			:key="ind"
-		>
-			<uni-card 
-				style="width: 40%;"			
-				v-for="(movie,index) in list" 
-				:key="index"
-				:title="movie.title" 
-				:thumbnail="movie.images.medium" 
-				:note="movie.directors[0].name">
-			</uni-card>
-		</div> -->
+		<input 
+			class="uni-input" 
+			confirm-type="search" 
+			placeholder="请输入想搜索的电影"
+			v-model="searchMovieName"
+			@focus="handleInputFocus"
+		/>
 		<div class="uni-product-list">
 			<div 
 				class="uni-product" 
@@ -27,13 +19,20 @@
 						v-if="renderImage" 
 						class="uni-product-image" 
 						:src="[ isSubject ? movie.subject.images.medium : movie.images.medium]"
-					></image>
-				</div>	
-				<div class="uni-product-title" v-text="isSubject ? movie.subject.title : movie.title"></div>
-				<div>
-					<uni-rate class="fl" size="12" disabled="true" :value="[ isSubject ? movie.subject.rating.average : movie.rating.average]"></uni-rate>
+					/>
 					<span class="fr" v-text="isSubject ? movie.subject.rating.average : movie.rating.average+'分'"></span>
-				</div>			
+				</div>	
+				<div class="uni-product-title" v-text="isSubject ? movie.subject.title : movie.title"></div>	
+				<div>
+					<uni-tag 
+						v-for="(tag,ind) in movie.genres" 
+						size="small" type="primary" 
+						:inverted="true" 
+						:key="ind" 
+						:circle="true" 
+						:text="tag"
+					></uni-tag>
+				</div>		
 			</div>
 			<p class="bottomP" v-if="!more">----------无更多精彩内容-----------</p>
 		</div>		
@@ -42,9 +41,8 @@
 
 <script>
 	import { get,getType } from '../../utils/utils.js'
-	// import { getMovie } from '../../utils/api.js'
 	import uniCard from '@/components/uni-card/uni-card.vue'
-	import uniRate from '@/components/uni-rate/uni-rate.vue'
+	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	export default{
 		name: 'movie',
 		data() {
@@ -53,7 +51,8 @@
 				movieList: [],
 				page: 0,
 				more: true,
-				type: ''
+				type: '',
+				searchMovieName: ''
 			}
 		},
 		onLoad(option){
@@ -70,13 +69,12 @@
 				return result;
 			},
 			isSubject(){
-				console.log('computed 判断', this.type === '/movie/weekly' || this.type === '/movie/us_box');
 				return this.type === '/movie/weekly' || this.type === '/movie/us_box'
 			}
 		},
 		components: {
 			uniCard,
-			uniRate
+			uniTag
 		},
 		methods: {
 			async getList(init){
@@ -101,10 +99,13 @@
 				} else {
 					return false
 				}
-
-// 				const { subjects } = await getMovie();
-// 				console.log('movie vue', subjects);
-// 				this.movieList = subjects;
+			},
+			// input focus事件
+			handleInputFocus(){
+				console.log(11111);
+				uni.navigateTo({
+					url: '/pages/search/search'
+				})
 			},
 			handleDetailClick(item) {
 				let id;
@@ -125,10 +126,7 @@
 			console.log('movieList', this.movieList);
 		},
 		onReachBottom(){
-			console.log('1111');
-			console.log(this.page);
 			this.getList(false)	
-					
 		}
 	}
 </script>
@@ -144,10 +142,23 @@
 		width: 100%;
 		text-align: center;
 	}
+	.image-view{
+		position: relative;
+	}
+	.image-view span{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0,.5);
+		color: #fff;
+		text-align: right;
+		padding-right: 5px;
+	}
+	.uni-tag{
+		margin-right: 4px;
+	}
 	.fl{
 		float: left;
-	}
-	.fr{
-		float: right;
 	}
 </style>

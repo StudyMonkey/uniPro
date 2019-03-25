@@ -77,4 +77,5 @@
 		font-size: 38upx;
 		color: #808080;
 	}
+	
 </style>
