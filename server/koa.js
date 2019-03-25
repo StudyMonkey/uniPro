@@ -122,6 +122,17 @@ router.get('/movie/coming_soon', async (ctx,next) => {
 	await next();
 })
 
+/* 
+ * 电影搜索接口
+ */
+router.get('/movie/search', async (ctx,next) => {
+	let { param } = ctx.query;
+	param = encodeURIComponent(param);
+    const res = await axios.get('https://api.douban.com/v2/movie/search?q='+param+'&apikey='+apikey);
+    ctx.body = res.data;
+	await next();
+})
+
 app.use(router.routes());
 
 

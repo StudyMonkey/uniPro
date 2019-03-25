@@ -7,7 +7,8 @@
 			v-model="searchMovieName"
 			@focus="handleInputFocus"
 		/>
-		<div class="uni-product-list">
+		<movie-list :movieList="movieList"></movie-list>
+<!-- 		<div class="uni-product-list">
 			<div 
 				class="uni-product" 
 				v-for="(movie,index) in movieList" 
@@ -35,19 +36,18 @@
 				</div>		
 			</div>
 			<p class="bottomP" v-if="!more">----------无更多精彩内容-----------</p>
-		</div>		
+		</div>	 -->	
 	</div>
 </template>
 
 <script>
 	import { get,getType } from '../../utils/utils.js'
-	import uniCard from '@/components/uni-card/uni-card.vue'
-	import uniTag from '@/components/uni-tag/uni-tag.vue'
+	
+	import MovieList from '@/pages/movieList/movieList.vue'
 	export default{
 		name: 'movie',
 		data() {
 			return {
-				renderImage: false,
 				movieList: [],
 				page: 0,
 				more: true,
@@ -67,14 +67,10 @@
 				}
 				console.log(result);
 				return result;
-			},
-			isSubject(){
-				return this.type === '/movie/weekly' || this.type === '/movie/us_box'
 			}
 		},
 		components: {
-			uniCard,
-			uniTag
+			MovieList
 		},
 		methods: {
 			async getList(init){
@@ -106,21 +102,9 @@
 				uni.navigateTo({
 					url: '/pages/search/search'
 				})
-			},
-			handleDetailClick(item) {
-				let id;
-				if ( this.type === '/movie/weekly' || this.type === '/movie/us_box' ) {
-					id = item.subject.id
-				} else {
-					id = item.id
-				}
-				uni.navigateTo({
-					url: '/pages/detail/detail?id='+id
-				})
 			}						
 		},
 		created() {
-			console.log('movie created');
 			this.getList(true)			
 			
 			console.log('movieList', this.movieList);
@@ -132,32 +116,6 @@
 </script>
 
 <style scoped>
-	.uni-product-title{
-		font-size: 16px;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-	.bottomP{
-		width: 100%;
-		text-align: center;
-	}
-	.image-view{
-		position: relative;
-	}
-	.image-view span{
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: rgba(0,0,0,.5);
-		color: #fff;
-		text-align: right;
-		padding-right: 5px;
-	}
-	.uni-tag{
-		margin-right: 4px;
-	}
 	.fl{
 		float: left;
 	}
