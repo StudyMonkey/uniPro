@@ -1,0 +1,2 @@
+<import src="./product-list.vue.wxml" />
+    <template is="09a0b29e" data="{{ ...$root['0'], $root }}"/>

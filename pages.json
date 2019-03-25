@@ -2,7 +2,7 @@
 	"pages": [
 		// pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path":"pages/movieMain/movieMain",
+			"path":"pages/movieIndex/movieIndex",
 			"style": {
 				"navigationBarTitleText":"电影"
 			}
@@ -14,9 +14,15 @@
 			}
 		},
 		{
-			"path":"pages/book/book",
+			"path":"pages/bookIndex/bookIndex",
 			"style": {
 				"navigationBarTitleText":"图书"
+			}
+		},
+		{
+			"path": "pages/book/book",
+			"style": {
+				"navigationBarTitleText": "图书列表"
 			}
 		},
 		{
@@ -1087,13 +1093,13 @@
 		"borderStyle": "black",
 		"backgroundColor": "#F8F8F8",
 		"list": [{
-				"pagePath": "pages/movieMain/movieMain",
+				"pagePath": "pages/movieIndex/movieIndex",
 				"iconPath": "static/movie.png",
 				"selectedIconPath": "static/movie_active.png",
 				"text": "电影"
 			},
 			{
-				"pagePath": "pages/book/book",
+				"pagePath": "pages/bookIndex/bookIndex",
 				"iconPath": "static/book.png",
 				"selectedIconPath": "static/book_active.png",
 				"text": "图书"

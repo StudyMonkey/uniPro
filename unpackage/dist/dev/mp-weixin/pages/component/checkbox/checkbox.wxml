@@ -1,0 +1,2 @@
+<import src="./checkbox.vue.wxml" />
+    <template is="ed9bd08e" data="{{ ...$root['0'], $root }}"/>

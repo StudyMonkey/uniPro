@@ -1,0 +1,7 @@
+<import src="/components/uni-nav-bar.vue.wxml" />
+<import src="/components/uni-icon.vue.wxml" />
+
+<template name="5f5d7a1c-default-5f5d7a1c-3"><view class="_view 5f5d7a1c input-view"><template type="search" size="22" color="#666666" data="{{...$root['0'], ...$root[$kk+'5f5d7a1c-2'],$root}}" is="436a01d6"></template><input confirm-type="search" bindconfirm="handleProxy" class="_input 5f5d7a1c input" type="text" placeholder="输入搜索关键词" data-eventid="{{'5f5d7a1c-1'}}" data-comkey="{{$k}}" /></view></template>
+
+<template name="5f5d7a1c-left-5f5d7a1c-3"><view class="_view 5f5d7a1c city"><text class="_text 5f5d7a1c">{{city}}</text><template type="arrowdown" color="#333333" size="22" data="{{...$root['0'], ...$root[$kk+'5f5d7a1c-1'],$root}}" is="436a01d6"></template></view></template>
+

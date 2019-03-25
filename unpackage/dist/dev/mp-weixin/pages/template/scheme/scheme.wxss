@@ -1,0 +1,12 @@
+
+.title {
+	text-align: center;
+	line-height: 100rpx;
+	margin: 30rpx;
+	font-size: 24rpx;
+}
+.button {
+	height: 100rpx;
+	margin: 30rpx;
+}
+

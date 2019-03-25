@@ -1,0 +1,2 @@
+<import src="./badge.vue.wxml" />
+    <template is="792f8659" data="{{ ...$root['0'], $root }}"/>

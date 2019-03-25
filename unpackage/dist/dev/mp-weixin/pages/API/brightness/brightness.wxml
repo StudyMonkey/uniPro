@@ -1,0 +1,2 @@
+<import src="./brightness.vue.wxml" />
+    <template is="58b87d36" data="{{ ...$root['0'], $root }}"/>

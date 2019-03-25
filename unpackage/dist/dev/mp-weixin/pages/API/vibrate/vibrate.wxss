@@ -1,0 +1,8 @@
+
+.uni-padding-wrap {
+	margin-top: 50rpx 0;
+}
+.uni-button {
+	margin: 30rpx 0;
+}
+

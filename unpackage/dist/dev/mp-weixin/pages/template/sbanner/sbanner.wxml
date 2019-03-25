@@ -1,0 +1,2 @@
+<import src="./sbanner.vue.wxml" />
+    <template is="a848f244" data="{{ ...$root['0'], $root }}"/>

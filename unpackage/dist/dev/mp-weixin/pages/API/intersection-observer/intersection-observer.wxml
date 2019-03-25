@@ -1,0 +1,2 @@
+<import src="./intersection-observer.vue.wxml" />
+    <template is="01b5bfe8" data="{{ ...$root['0'], $root }}"/>

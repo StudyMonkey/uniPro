@@ -1,0 +1,2 @@
+<import src="./extUI.vue.wxml" />
+    <template is="12f69264" data="{{ ...$root['0'], $root }}"/>

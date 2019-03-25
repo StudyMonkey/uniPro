@@ -1,0 +1,1 @@
+<template name="3c35db0f"><view class="_view 3c35db0f root"><view class="_view 3c35db0f uni-padding-wrap"><view class="_view 3c35db0f uni-title">这是选项卡页面跳转详情页面的演示，下面是页面跳转时传递过来的标题：</view><view class="_view 3c35db0f uni-title">{{data}}</view></view></view></template>

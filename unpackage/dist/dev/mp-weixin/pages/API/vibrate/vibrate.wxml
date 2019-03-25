@@ -1,0 +1,2 @@
+<import src="./vibrate.vue.wxml" />
+    <template is="d8a58b14" data="{{ ...$root['0'], $root }}"/>

@@ -6,7 +6,16 @@
 
 <script>
 	export default{
-		name: 'book'
+		name: 'book',
+		onLoad(option){
+			console.log(option.type)
+			this.tag = option.type
+		},
+		data() {
+			return {
+				tag: ''
+			}
+		},
 	}
 </script>
 
